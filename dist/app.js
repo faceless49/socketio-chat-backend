@@ -5,7 +5,8 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const socket = new Server(server, {
     cors: {
-        origin: 'https://localhost:3000'
+        origin: 'http://localhost:3000',
+        credentials: true
     }
 });
 app.get('/', (req, res) => {
