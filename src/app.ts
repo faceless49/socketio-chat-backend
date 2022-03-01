@@ -15,8 +15,11 @@ app.get('/', (req, res) => {
 });
 
 
-socket.on('connection', (connection) => { // if client connect =>
-  console.log('a user connected');
+socket.on('connection', (socketChannel) => { // if client connect =>
+  socketChannel.on('client-message-sent', (message: string) => {
+    console.log(message)
+  })
+
 });
 
 const PORT = process.env.PORT || 3009
